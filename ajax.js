@@ -77,7 +77,7 @@ function AJAX (){
             document.getElementsByTagName('body')[0].appendChild(script);
             script.setAttribute('src',url);
             script.onload = function(){
-                console.log(1);
+                console.log('跨域成功')
             }
         },
         //可以设置header的ajax方法,默认所有数据不做处理
