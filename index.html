@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <title>ajax test</title>
+    <script type="text/javascript" src="./ajax.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    var M = new AJAX();
+    var sendData = {
+        name:"test",
+        password:"password",
+        uid:"uid"
+    }
+    var testData = {"name":"test","array":["A","B"]};
+    M.post("./servers/test.php",sendData,function (data) {
+        console.log(data)
+    })
+    M.get("./servers/get.php?bookid=1",function (data) {
+        console.log(data)
+    })
+    
+    M.json("./servers/json.php",testData,function(data){
+        console.log(data)
+    })
+    M.jsonp("./servers/jsonp.php?callback=json",function(data){
+        console.log(data)
+    })
+    M.ajax('./servers/json.php',{'Content-Type':'application/json'},JSON.stringify(testData),'post',function(data){
+        console.log(data)
+    })
+</script>
+</body>
+</html>
